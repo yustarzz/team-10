@@ -11,3 +11,6 @@ _ 김유진(yustarzz): 팀장, 중간 발표자, 입시정보 웹사이트에서
   허채령 (gommung): 적성검사 개발, 중간 발표자
   양한나 (iamhanna): 선택형 키보드 구현, 중간 ppt 제작
   윤혜원 (youuuoruon): 적성검사 질문 구성, 중간 ppt 제작
+
+# 라이센스
+_ telegram open api:  GNU GPL licences
