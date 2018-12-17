@@ -8,6 +8,7 @@ _ 이화대학을 목표로 입시를 준비하는 입시생들에게 입시 관
 # 코드 설명
 # 1. 전공 적성 검사
 # 1.1. 키보드 버튼 생성
+
 def build_menu(buttons, n_cols, header_buttons=None, footer_buttons=None):
     menu = [buttons[i:i + n_cols] for i in range(0, len(buttons), n_cols)]
     if header_buttons:
