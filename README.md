@@ -8,7 +8,6 @@ _ 이화대학을 목표로 입시를 준비하는 입시생들에게 입시 관
 # 코드 설명
 # 1. 전공 적성 검사
 # 1.1. 키보드 버튼 생성
-
 def build_menu(buttons, n_cols, header_buttons=None, footer_buttons=None):
     menu = [buttons[i:i + n_cols] for i in range(0, len(buttons), n_cols)]
     if header_buttons:
@@ -16,6 +15,7 @@ def build_menu(buttons, n_cols, header_buttons=None, footer_buttons=None):
     if footer_buttons:
         menu.append(footer_buttons)
     return menu
+
     
 - build_menu는 키보드에 선택지 버튼을 생성하는 함수입니다. buttons는 버튼에 들어갈 글자이고, n_cols는 버튼의 열 개수를 나타냅니다.
 
