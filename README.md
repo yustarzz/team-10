@@ -74,6 +74,7 @@ for i in range(0,2):
 만약 응답이 "그렇다"였다면 engineering의 점수를 4점 올려주고 nature의 점수를 2점 올려주는 식으로 전공의 적성을 맞춰갑니다.
 
 
+
 ```python
 if(enginnering>nature):
   bot.edit_message_text(text="당신은 공대에 적성이 맞아요!\n구체적 전공에 대한 정보를 알고 싶으신가요?".format(update.callback_query.data),
