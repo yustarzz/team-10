@@ -161,7 +161,7 @@ else:
 ```
 마찬가지로 1번 응답에대해 선택지별로 전공점수를 따로 주는 조건문입니다.
 
-### 적성검사 최종 결과 출력
+## 1.3. 적성검사 최종 결과 출력
 ```python
 if (engine>chemical):
                 bot.edit_message_text(text="당신은 컴퓨터 공학과에 적성이 맞아요!\n 
@@ -174,23 +174,47 @@ else:
                 chat_id=update.callback_query.message.chat_id,
                 message_id=update.callback_query.message.message_id)
 ```
-engine이 chemical보다 높았다면 bot의 메시지를 "당신은 컴퓨터 공학과에 적성이 맞아요!"로 수정한 후
-사용자가 자세한 정보를 빠르게 접하기 쉽도록 링크를 추가합니다.
+engine이 chemical보다 높았다면 bot의 메시지를 "당신은 컴퓨터 공학과에 적성이 맞아요!"로 출력한 후
+사용자가 전공에 대한 자세한 정보를 빠르게 접하기 쉽도록 링크를 추가합니다.
 chemical이 engine보다 높은 경우도 같습니다.
 
+## 1.4. 전공에 관한 추가 정보
+
 # 2. 이화입학처 사이트를 웹 크롤링하여 사용자가 입력한 키워드에 해당하는 전형별 FAQ 
+## 2.1. 사용자로부터 키워드 입력받기
+```python
+keyword=input("키워드를 입력해주세요: ")
+```
+input()함수로 사용자로부터 입학 정보에 대해 알고싶은 키워드를 입력받도록 합니다.
 
 
+```python
+url = 'http://admission.ewha.ac.kr/enter/doc/rolling/faq.asp?page=%d&s_board_category=BBS0402&s_search_cate=&s_search_type=&s_search_text=&p_board_id=BBS0001&p_site_type=MAM0001'
+```
+이화여자대학교 입학처 FAQ사이트 url입니다. 이 사이트에서 keyword를 기반으로 원하는 정보를 크롤링합니다.
+(keyword가 포함되어있는 질문과 질문에 대한 답변)
 
 
+```python
+question=soup.findAll('a',{"class":"tit"})
+answer=soup.findAll('div',{"class":"txt"})
+```
+FAQ부분 html에서 'a'에서 <tit>클래스를 크롤링한 결과를 qusetion에 저장합니다.
+똑같이 'div'에서 <txt>클래스를 크롤링한 결과를 answer에 저장합니다.
+    
+
+```python
+for i in range(0,len(question)):
+    question[i]=str(i)+" "+question[i].text
+```
+question배열에 크롤링한 question을 차례대로 정리하여 저장하는 부분입니다.
 
 
-
-
-
-
-
-
+```python
+for i in range(0,len(answer)):
+    answer[i]=answer[i].text
+```
+answer배열에 크롤링한 answer을 차례대로 정리하여 저장하는 부분입니다.
 
 
 
