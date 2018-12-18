@@ -8,7 +8,7 @@ _ 어플 초반에 간단한 테스트로 단과대학 적성검사를 하는 �
 # 사용법
 EwhaInfo_Tetelegram.py 파일을 받습니다.  
 ![image](https://user-images.githubusercontent.com/43199383/50179216-c8ed4680-0349-11e9-9630-dfafb5e25bbc.png)  
-Python Idle 등으로 파일을 연 다음 녹색 상자부분에 자신의 API를 입력합니다.  
+Python Idle 등으로 파일을 연 다음 녹색 상자부분에 자신의 API ID를 입력합니다.  
 Telegram 앱으로 이동합니다.  
 ## 전공 적성 평가
 ![uni3](https://user-images.githubusercontent.com/43199383/50168269-6044a080-032e-11e9-933a-0e12331d6115.png)
