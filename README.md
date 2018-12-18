@@ -7,15 +7,41 @@ _ 이화대학을 목표로 입시를 준비하는 입시생들에게 입시 관
 _ 어플 초반에 간단한 테스트로 단과대학 적성검사를 하는 부분이 있고, 이후 사용자가 원하는 입시정보를 얻을 수 있도록 구현하였습니다.
 
 # 사용법
+## 전공 적성 평가
 ![uni3](https://user-images.githubusercontent.com/43199383/50168269-6044a080-032e-11e9-933a-0e12331d6115.png)
-![uni4](https://user-images.githubusercontent.com/43199383/50168640-36d84480-032f-11e9-949a-2590867824c4.png)
+![uni4](https://user-images.githubusercontent.com/43199383/50168640-36d84480-032f-11e9-949a-2590867824c4.png)  
 Telegram에서 EwhaInfo를 검색해서 클릭합니다.  
 Start버튼을 누르면  
+
+
 ![image](https://user-images.githubusercontent.com/43199383/50168418-bd405680-032e-11e9-88fb-135a6c188166.png)  
 챗봇에 관한 설명이 나온 후 /test를 눌러달라는 메시지가 나옵니다. 
 
+
+![uni5](https://user-images.githubusercontent.com/43199383/50168837-ae0dd880-032f-11e9-9e8a-930cdf32b14c.png)  
+/test를 누르면 이런식으로 적성 검사를 위한 질문과 선택지가 표시되고 선택을 하면 다른 질문으로 바뀝니다.  
+단과대학에 관한 질문은 총 5개입니다. 이 질문을 전부 마친다면  
+
+![image](https://user-images.githubusercontent.com/43199383/50168988-004ef980-0330-11e9-8ee9-93777e72beac.png)  
+자신의 적성에 맞는 단과대를 출력해줍니다.  
+/aboutliberal을 눌러준다면 나에게 맞는 전공을 검사해볼 수 있습니다.  
+
+![image](https://user-images.githubusercontent.com/43199383/50169313-b31f5780-0330-11e9-9b77-dca3b3ddec20.png)  
+그 단과대학에 해당하는 세부적인 질문에 답을 할 수 있게 됩니다.  
+전공검사에 관한 질문은 총 5개입니다. 이 질문도 전부 마치면  
+  
+![image](https://user-images.githubusercontent.com/43199383/50169526-190bdf00-0331-11e9-9e71-3a60b790fcc2.png)   
+최종 결과를 보여줍니다.  
+해당 전공에 대해 더 많은 정보를 알고싶은 사람을 위해 링크를 제공합니다.  
+
+## FAQ
+사용자가 원하는 정보를 입학처 FAQ에서 크롤링하여 제공합니다.  
+사용자가 "자기소개서"를 입력했다면  
+![image](https://user-images.githubusercontent.com/43199383/50169901-ef06ec80-0331-11e9-8e65-1c6196f4f489.png)  
+입학처 FAQ 사이트에서 "자기소개서"가 있는 질문을 크롤링하여 표시해줍니다.
+
 # 코드 설명
-# 1. 전공 적성 검사
+# 1. 전공 적성 평가
 ## 1.1. 키보드 버튼 생성
 
 ### build_menu()
