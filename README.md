@@ -219,7 +219,29 @@ engine이 chemical보다 높았다면 bot의 메시지를 "당신은 컴퓨터 �
 사용자가 전공에 대한 자세한 정보를 빠르게 접하기 쉽도록 링크를 추가합니다.  
 chemical이 engine보다 높은 경우도 같습니다.  
   
-## 1.4. 전공에 관한 추가 정보
+## 1.4. count 변수
+callback_get()함수에서 
+```python
+if(count==0):
+```
+이라는 부분이 나옵니다.  
+여기서 count변수는 현재 질문 상황을 뜻하며,  
+0일 경우는 아직 단과대학이 선택되지 않은 초기상태,  
+1은 단과대학 검사 결과가 공과대학이고 세부 전공은 아직 선택되지 않은 상태,  
+2는 단과대학 검사 결과가 인문대학이고 세부 전공은 아직 선택되지 않은 상태를 뜻합니다.  
+
+count변수는 
+```python
+def get_command_more_eltec(bot, update):
+    print("aboutmore_공대")
+    button_list = build_button(["매우 그렇다", "그렇다", "아니다","매우 아니다"]) # make button list
+    show_markup = InlineKeyboardMarkup(build_menu(button_list, len(button_list) - 2)) # make markup
+    update.message.reply_text("화학 또는 생명을 좋아하시나요?", reply_markup=show_markup) # reply text with markup
+    global count
+    count=1
+```
+get_command_more 함수에서 변경됩니다.  
+단과대학 선택에 관한 질문을 마치고 결과가 공학대학이 되었을때 세부 전공에 관련된 질문과 선택지를 생성하고 count를 1로 바꿔줍니다.  
 
 # 2. 이화입학처 사이트를 웹 크롤링하여 사용자가 입력한 키워드에 해당하는 전형별 FAQ 
 ## 2.1. 사용자로부터 키워드 입력받기
