@@ -17,7 +17,8 @@ def build_menu(buttons, n_cols, header_buttons=None, footer_buttons=None):
         menu.append(footer_buttons)
     return menu
 ```
-build_menu는 키보드에 선택지 버튼을 생성하는 함수입니다. buttons는 버튼에 들어갈 글자, n_cols는 버튼의 열 개수를 나타냅니다.
+build_menu는 키보드에 선택지 버튼을 생성하는 함수입니다. buttons는 버튼에 들어갈 글자, n_cols는 버튼의 열 개수를 나타냅니다.\
+
 
 ```python
  def build_button(text_list, callback_header = "") : # make button list
@@ -31,7 +32,7 @@ build_menu는 키보드에 선택지 버튼을 생성하는 함수입니다. but
 
     return button_list
 ``` 
-build_button()은 키보드에 선택지 글자를 채우는 함수입니다.
+build_button()은 키보드에 선택지 글자를 채우는 함수입니다.\
 
 ```python
 def help_handler(bot, update):
@@ -41,7 +42,7 @@ def help_handler(bot, update):
 help_handler()함수는 이 챗봇을 소개하는 문구를 출력하고 /test를 누르도록 돕는 역할을 합니다.
 ![uni1](https://user-images.githubusercontent.com/43199383/50166273-0fcb4400-032a-11e9-9f91-82f13a8a77a6.PNG)
 
-
+\
 ## 1.2 질문 시작
 사용자가 /test를 눌렀다면
 get_command_1 함수로부터 질문을 하기 시작합니다.
@@ -49,26 +50,25 @@ get_command_1 함수로부터 질문을 하기 시작합니다.
 ```python
  button_list = build_button(["매우 그렇다", "그렇다", "아니다","매우 아니다"]) 
 ``` 
-build_button()함수를 호출하여 
+build_button()함수를 호출하여\
 
-"매우 그렇다"  "그렇다"
-"아니다"  "매우 아니다" 
+![uni2](https://user-images.githubusercontent.com/43199383/50166377-4c973b00-032a-11e9-890b-afddda6f96f3.PNG)
 
-형태의 네가지 버튼을 생성합니다.
+이 형태의 네가지 버튼을 생성합니다.\
 
 ```python
 update.message.reply_text("책을 읽는 것을 좋아합니까?", reply_markup=show_markup)
 ```
-사용자에게 질문을 하는 메시지를 출력하도록 bot의 message를 업데이트(변경)합니다.
+사용자에게 질문을 하는 메시지를 출력하도록 bot의 message를 업데이트(변경)합니다.\
 
 ### callback_get()함수
-
+\
 ```python
 def callback_get(bot, update):
 ```
-callback_get()함수는 사용자가 버튼을 선택했을때 응답을 해주는 함수입니다.
-또한 사용자로부터 응답이 온 후의 질문도 이 함수 안에 들어있습니다.
-
+callback_get()함수는 사용자가 버튼을 선택했을때 응답을 해주는 함수입니다.\
+또한 사용자로부터 응답이 온 후의 질문도 이 함수 안에 들어있습니다.\
+\
 ```python
 if len(data_selected.split(",")) == 1 :
             button_list = build_button(["매우 그렇다", "그렇다", "아니다","매우 아니다"], data_selected)
@@ -78,7 +78,7 @@ if len(data_selected.split(",")) == 1 :
                                   message_id=update.callback_query.message.message_id,
                                   reply_markup=show_markup)
 ```
-build_menu()함수로 사용자에게 선택지 키보드를 띄우고, edit_message_text()함수로 질문을 변경해 줍니다.
+build_menu()함수로 사용자에게 선택지 키보드를 띄우고, edit_message_text()함수로 질문을 변경해 줍니다.\
 
 ```python
 a=[]
@@ -86,8 +86,8 @@ a=update.callback_query.data.split(',')
 enginnering=0        
 literature=0
 ```
-단과대학에 관한 변수값을 초기화해주는 부분입니다.
-a[]는 받아온 응답을 저장하는 배열입니다.
+단과대학에 관한 변수값을 초기화해주는 부분입니다.\
+a[]는 받아온 응답을 저장하는 배열입니다.\
 
 ```python
 if (a[0]=="매우 그렇다"):               
@@ -99,12 +99,12 @@ if (a[0]=="매우 그렇다"):
             else:
                 enginnering+=3
 ```
-만약 응답이 "매우 그렇다"였다면 literature(인문대학)의 점수를 3점 올려주고 
-"그렇다"였다면 literature의 점수를 1점 올려주고
-"아니다"였다면 engineering(공과대학)의 점수를 1점 올려주고
-그 외 "매우 아니다" 였다면 engineering의 점수를 3점 올려줍니다. 
+만약 응답이 "매우 그렇다"였다면 literature(인문대학)의 점수를 3점 올려주고 \
+"그렇다"였다면 literature의 점수를 1점 올려주고\
+"아니다"였다면 engineering(공과대학)의 점수를 1점 올려주고\
+그 외 "매우 아니다" 였다면 engineering의 점수를 3점 올려줍니다.\
 
-이런 식으로 응답에 따라 점수를 누적하여 어느 단과대학과 더 맞는지 찾아갈 수 있도록 합니다.
+이런 식으로 응답에 따라 점수를 누적하여 어느 단과대학과 더 맞는지 찾아갈 수 있도록 합니다.\
 
 ```python
 if(enginnering>literature):
@@ -118,20 +118,20 @@ else:
                  message_id=update.callback_query.message.message_id)
 
 ```
-engineering이 literature보다 점수가 높았다면 bot의 메시지를 "당신은 공대에 적성이 맞아요!"로 변경해줍니다. 
-그 후 /aboutengine을 입력하도록 도움말을 줍니다.
+engineering이 literature보다 점수가 높았다면 bot의 메시지를 "당신은 공대에 적성이 맞아요!"로 변경해줍니다.\ 
+그 후 /aboutengine을 입력하도록 도움말을 줍니다.\
 
-만약 literature이 engineering보다 점수가 높았다면 bot의 메시지를 "당신은  인문대학에 적성이 맞아요!"로 변경해줍니다.
-그 후 /aboutliberal을 입력하도록 도움말을 줍니다.
+만약 literature이 engineering보다 점수가 높았다면 bot의 메시지를 "당신은  인문대학에 적성이 맞아요!"로 변경해줍니다.\
+그 후 /aboutliberal을 입력하도록 도움말을 줍니다.\
+\
 
-
-같은 형식으로 단과대학선택에 관한 5개의 질문과 선택지를 출력 합니다.
-
+같은 형식으로 단과대학선택에 관한 5개의 질문과 선택지를 출력 합니다.\
+\
 
 ```python
 elif count==1:
 ```
-단과대학이 공대가 되었다면
+단과대학이 공대가 되었다면\
 
 ```python
 if len(data_selected.split(",")) == 1 :
@@ -142,15 +142,15 @@ if len(data_selected.split(",")) == 1 :
             message_id=update.callback_query.message.message_id,
             reply_markup=show_markup)
 ```
-위와 같은 형식으로 전공파악을 하는 구체적인 질문을 하도록 합니다.
+위와 같은 형식으로 전공파악을 하는 구체적인 질문을 하도록 합니다.\
 
 ```python
 b=update.callback_query.data.split(',')
 chemical=0       
 engine=0
 ```
-전공 점수를 초기화하는 부분입니다.
-b[]는 받아온 응답을 저장하는 배열입니다.
+전공 점수를 초기화하는 부분입니다.\
+b[]는 받아온 응답을 저장하는 배열입니다.\
 
 ```python
 if (b[0]=="매우 그렇다"):
@@ -162,7 +162,7 @@ elif (b[0]=="아니다"):
 else:
     engine+=3
 ```
-마찬가지로 1번 응답에대해 선택지별로 전공점수를 따로 주는 조건문입니다.
+마찬가지로 1번 응답에대해 선택지별로 전공점수를 따로 주는 조건문입니다.\
 
 ## 1.3. 적성검사 최종 결과 출력
 ```python
@@ -177,10 +177,10 @@ else:
                 chat_id=update.callback_query.message.chat_id,
                 message_id=update.callback_query.message.message_id)
 ```
-engine이 chemical보다 높았다면 bot의 메시지를 "당신은 컴퓨터 공학과에 적성이 맞아요!"로 출력한 후
-사용자가 전공에 대한 자세한 정보를 빠르게 접하기 쉽도록 링크를 추가합니다.
-chemical이 engine보다 높은 경우도 같습니다.
-
+engine이 chemical보다 높았다면 bot의 메시지를 "당신은 컴퓨터 공학과에 적성이 맞아요!"로 출력한 후\
+사용자가 전공에 대한 자세한 정보를 빠르게 접하기 쉽도록 링크를 추가합니다.\
+chemical이 engine보다 높은 경우도 같습니다.\
+\
 ## 1.4. 전공에 관한 추가 정보
 
 # 2. 이화입학처 사이트를 웹 크롤링하여 사용자가 입력한 키워드에 해당하는 전형별 FAQ 
@@ -188,37 +188,37 @@ chemical이 engine보다 높은 경우도 같습니다.
 ```python
 keyword=input("키워드를 입력해주세요: ")
 ```
-input()함수로 사용자로부터 입학 정보에 대해 알고싶은 키워드를 입력받도록 합니다.
-
+input()함수로 사용자로부터 입학 정보에 대해 알고싶은 키워드를 입력받도록 합니다.\
+\
 
 ```python
 url = 'http://admission.ewha.ac.kr/enter/doc/rolling/faq.asp?page=%d&s_board_category=BBS0402&s_search_cate=&s_search_type=&s_search_text=&p_board_id=BBS0001&p_site_type=MAM0001'
 ```
-이화여자대학교 입학처 FAQ사이트 url입니다. 이 사이트에서 keyword를 기반으로 원하는 정보를 크롤링합니다.
-(keyword가 포함되어있는 질문과 질문에 대한 답변)
-
+이화여자대학교 입학처 FAQ사이트 url입니다. 이 사이트에서 keyword를 기반으로 원하는 정보를 크롤링합니다.\
+(keyword가 포함되어있는 질문과 질문에 대한 답변)\
+\
 
 ```python
 question=soup.findAll('a',{"class":"tit"})
 answer=soup.findAll('div',{"class":"txt"})
 ```
-FAQ부분 html에서 'a'에서 <tit>클래스를 크롤링한 결과를 qusetion에 저장합니다.
-똑같이 'div'에서 <txt>클래스를 크롤링한 결과를 answer에 저장합니다.
-    
+FAQ부분 html에서 'a'에서 <tit>클래스를 크롤링한 결과를 qusetion에 저장합니다.\
+똑같이 'div'에서 <txt>클래스를 크롤링한 결과를 answer에 저장합니다.\
+\
 
 ```python
 for i in range(0,len(question)):
     question[i]=str(i)+" "+question[i].text
 ```
-question배열에 크롤링한 question을 차례대로 정리하여 저장하는 부분입니다.
-
+question배열에 크롤링한 question을 차례대로 정리하여 저장하는 부분입니다.\
+\
 
 ```python
 for i in range(0,len(answer)):
     answer[i]=answer[i].text
 ```
-answer배열에 크롤링한 answer을 차례대로 정리하여 저장하는 부분입니다.
-
+answer배열에 크롤링한 answer을 차례대로 정리하여 저장하는 부분입니다.\
+\
 
 
 
