@@ -8,7 +8,7 @@ _ 어플 초반에 간단한 테스트로 단과대학 적성검사를 하는 �
 # 코드 설명
 # 1. 전공 적성 검사
 ## 1.1. 키보드 버튼 생성
-```
+```python
 def build_menu(buttons, n_cols, header_buttons=None, footer_buttons=None):
     menu = [buttons[i:i + n_cols] for i in range(0, len(buttons), n_cols)]
     if header_buttons:
@@ -19,7 +19,7 @@ def build_menu(buttons, n_cols, header_buttons=None, footer_buttons=None):
 ```
 build_menu는 키보드에 선택지 버튼을 생성하는 함수입니다. buttons는 버튼에 들어갈 글자, n_cols는 버튼의 열 개수를 나타냅니다.
 
-```
+```python
  def build_button(text_list, callback_header = "") : # make button list
     button_list = []
     text_header = callback_header
@@ -36,7 +36,7 @@ build_button은 키보드에 선택지 글자를 채우는 함수입니다.
 ## 1.2 질문 시작
 get_command_1 함수로부터 질문을 하기 시작합니다.
 
-```
+```python
  button_list = build_button(["매우 그렇다", "그렇다", "아니다","매우 아니다"]) 
 ``` 
 build_button()함수를 호출하여 
@@ -47,13 +47,13 @@ build_button()함수를 호출하여
 형태의 네가지 버튼을 생성합니다.
 
 
-```
+```python
 def callback_get(bot, update):
 
 ```
 callback_get()함수는 사용자가 버튼을 선택했을때 응답을 해주는 함수입니다.
 
-```
+```python
 enginnering=0
 nature=0
 social=0
@@ -61,7 +61,7 @@ literature=0
 ```
 단과대학에 관한 변수값을 초기화해주는 부분입니다.
 
-```
+```python
 for i in range(0,2):
  if(a[i]=="매우 그렇다"):
     enginnering+=3
@@ -74,7 +74,7 @@ for i in range(0,2):
 만약 응답이 "그렇다"였다면 enginerring의 점수를 4점 올려주고 nature의 점수를 2점 올려주는 식으로 전공의 적성을 맞춰갑니다.
 
 
-```
+```python
 if(enginnering>nature):
   bot.edit_message_text(text="당신은 공대에 적성이 맞아요!\n구체적 전공에 대한 정보를 알고 싶으신가요?".format(update.callback_query.data),
 ```
