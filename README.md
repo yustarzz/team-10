@@ -109,14 +109,14 @@ engineering이 nature보다 점수가 높았다면, 결과를 내보낸 후
 
 
 # 개발자 정보 
-_ 김유진(yustarzz): 팀장, 중간 발표자, 기말 발표자, 웹 크롤링 구현\n
-_ 허채령 (gommung): 적성검사 구현, 중간 발표자\n
-_ 양한나 (iamhanna): 선택형 키보드 구현, 중간 ppt 제작, 기말 ppt 제작, 적성검사 구현\n
-_ 윤혜원 (youuuoruon): 적성검사 질문 구성, 중간 ppt 제작, read me 파일 작성\n
+_ 김유진(yustarzz): 팀장, 중간 발표자, 기말 발표자, 웹 크롤링 구현\
+_ 허채령 (gommung): 적성검사 구현, 중간 발표자\
+_ 양한나 (iamhanna): 선택형 키보드 구현, 중간 ppt 제작, 기말 ppt 제작, 적성검사 구현\
+_ 윤혜원 (youuuoruon): 적성검사 질문 구성, 중간 ppt 제작, read me 파일 작성\
 
 # 라이센스
-_ telegram open api:  GNU GPL licences\n
-_ flashtext \n
-_ beautifulsoup \n
-_ requests \n
+_ telegram open api:  GNU GPL licences\
+_ flashtext \
+_ beautifulsoup \
+_ requests \
 
