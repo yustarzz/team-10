@@ -39,7 +39,12 @@ get_command_1 함수로부터 질문을 하기 시작합니다.
 ```
  button_list = build_button(["매우 그렇다", "그렇다", "아니다","매우 아니다"]) 
 ``` 
-build_button()함수를 호출하여 버튼을 생성합니다.
+build_button()함수를 호출하여 
+
+"매우 그렇다"  "그렇다"
+"아니다"  "매우 아니다" 
+
+형태의 네가지 버튼을 생성합니다.
 
 
 ```
@@ -69,6 +74,11 @@ for i in range(0,2):
 만약 응답이 "그렇다"였다면 enginerring의 점수를 4점 올려주고 nature의 점수를 2점 올려주는 식으로 전공의 적성을 맞춰갑니다.
 
 
+```
+if(enginnering>nature):
+  bot.edit_message_text(text="당신은 공대에 적성이 맞아요!\n구체적 전공에 대한 정보를 알고 싶으신가요?".format(update.callback_query.data),
+```
+engineering이 nature보다 점수가 높았다면, 결과를 내보낸 후 
 # 개발자 정보 
 _ 김유진(yustarzz): 팀장, 중간 발표자, 입시정보 웹사이트에서 불러오기 구현
   허채령 (gommung): 적성검사 개발, 중간 발표자
