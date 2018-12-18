@@ -44,7 +44,7 @@ Start버튼을 누르면
 # 1. 전공 적성 평가
 ## 1.1. 키보드 버튼 생성
 
-### build_menu()
+### 키보드에 선택지 버튼을 생성(build_menu())
 ```python
 def build_menu(buttons, n_cols, header_buttons=None, footer_buttons=None):
     menu = [buttons[i:i + n_cols] for i in range(0, len(buttons), n_cols)]
@@ -57,7 +57,7 @@ def build_menu(buttons, n_cols, header_buttons=None, footer_buttons=None):
 build_menu는 키보드에 선택지 버튼을 생성하는 함수입니다. buttons는 버튼에 들어갈 글자, n_cols는 버튼의 열 개수를 나타냅니다.  
 
 
-### build_button()
+### 키보드에 선택지 글자를 채우기(build_button())
 ```python
  def build_button(text_list, callback_header = "") : # make button list
     button_list = []
@@ -72,7 +72,7 @@ build_menu는 키보드에 선택지 버튼을 생성하는 함수입니다. but
 ``` 
 build_button()은 키보드에 선택지 글자를 채우는 함수입니다.  
 
-### help_handler()
+### 챗봇을 소개하는 문구를 출력(help_handler())
 ```python
 def help_handler(bot, update):
     print("start")    
@@ -101,7 +101,7 @@ update.message.reply_text("책을 읽는 것을 좋아합니까?", reply_markup=
 ```
 사용자에게 질문을 하는 메시지를 출력하도록 bot의 message를 업데이트(변경)합니다.  
 
-### callback_get()
+### 사용자 선택에 대한 응답(callback_get())
 ```python
 def callback_get(bot, update):
 ```
@@ -279,11 +279,28 @@ for i in range(0,len(answer)):
 ```
 answer배열에 크롤링한 answer을 차례대로 정리하여 저장하는 부분입니다.  
   
+### 키워드 추출
+```python
+for i in range(0,len(question)):  
+                   keyword_processor.add_keyword(keyword)
+                   keywords_found=keyword_processor.extract_keywords(question[i])
 
+                   if(keywords_found):
+                          finalquestion=question[i].split('Q')[1]
 
+                          print(finalquestion)
+                          chat_id = botbot.getUpdates()[-1].message.chat.id
+                          botbot.sendMessage(chat_id=chat_id,text=finalquestion)
 
-
-
+                          print(answer[i])
+                          chat_id = botbot.getUpdates()[-1].message.chat.id
+                          botbot.sendMessage(chat_id=chat_id,text=answer[i])
+```
+KeywordProcessor()에 사용자로부터 받아온 keyword를 넣은 후 그 keyword에 해당하는 부분을 question[i]에서 찾습니다.  
+Q를 기반으로 모든 질문을 담은 question[i]를 분할합니다.  
+그리고 분할된 finalquestion을 출력합니다.  
+  
+그 질문에 해당하는 answer도 출력합니다.  
 
 # 개발자 정보 
 _ 김유진(yustarzz): 팀장, 중간 발표자, 기말 발표자, 웹 크롤링 구현\
