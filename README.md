@@ -39,6 +39,8 @@ def help_handler(bot, update):
     update.message.reply_text("안녕하세요.이 챗봇은 당신의 적성에 맞추어 학과를 알려드립니다. 자신의 적성을 확인 하고 싶으시다면, /test 을 눌러주세요 ")
 ```
 help_handler()함수는 이 챗봇을 소개하는 문구를 출력하고 /test를 누르도록 돕는 역할을 합니다.
+![uni1](https://user-images.githubusercontent.com/43199383/50166273-0fcb4400-032a-11e9-9f91-82f13a8a77a6.PNG)
+
 
 ## 1.2 질문 시작
 사용자가 /test를 눌렀다면
