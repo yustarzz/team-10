@@ -8,6 +8,8 @@ _ 어플 초반에 간단한 테스트로 단과대학 적성검사를 하는 �
 # 코드 설명
 # 1. 전공 적성 검사
 ## 1.1. 키보드 버튼 생성
+
+### build_menu()
 ```python
 def build_menu(buttons, n_cols, header_buttons=None, footer_buttons=None):
     menu = [buttons[i:i + n_cols] for i in range(0, len(buttons), n_cols)]
@@ -20,6 +22,7 @@ def build_menu(buttons, n_cols, header_buttons=None, footer_buttons=None):
 build_menu는 키보드에 선택지 버튼을 생성하는 함수입니다. buttons는 버튼에 들어갈 글자, n_cols는 버튼의 열 개수를 나타냅니다.  
 
 
+### build_button()
 ```python
  def build_button(text_list, callback_header = "") : # make button list
     button_list = []
@@ -34,6 +37,7 @@ build_menu는 키보드에 선택지 버튼을 생성하는 함수입니다. but
 ``` 
 build_button()은 키보드에 선택지 글자를 채우는 함수입니다.  
 
+### help_handler()
 ```python
 def help_handler(bot, update):
     print("start")    
@@ -43,7 +47,8 @@ help_handler()함수는 이 챗봇을 소개하는 문구를 출력하고 /test�
 ![uni1](https://user-images.githubusercontent.com/43199383/50166273-0fcb4400-032a-11e9-9f91-82f13a8a77a6.PNG)
 
   
-## 1.2 질문 시작
+## 1.2. 질문 시작
+### get_command_1()
 사용자가 /test를 눌렀다면
 get_command_1 함수로부터 질문을 하기 시작합니다.
 
@@ -61,8 +66,7 @@ update.message.reply_text("책을 읽는 것을 좋아합니까?", reply_markup=
 ```
 사용자에게 질문을 하는 메시지를 출력하도록 bot의 message를 업데이트(변경)합니다.  
 
-### callback_get()함수
-  
+### callback_get()
 ```python
 def callback_get(bot, update):
 ```
@@ -74,9 +78,9 @@ if len(data_selected.split(",")) == 1 :
             button_list = build_button(["매우 그렇다", "그렇다", "아니다","매우 아니다"], data_selected)
             show_markup = InlineKeyboardMarkup(build_menu(button_list, len(button_list) - 2))
             bot.edit_message_text(text="무언가 탐구 하는 것을 좋아합니까?",
-                                  chat_id=update.callback_query.message.chat_id,
-                                  message_id=update.callback_query.message.message_id,
-                                  reply_markup=show_markup)
+            chat_id=update.callback_query.message.chat_id,
+            message_id=update.callback_query.message.message_id,
+            reply_markup=show_markup)
 ```
 build_menu()함수로 사용자에게 선택지 키보드를 띄우고, edit_message_text()함수로 질문을 변경해 줍니다.  
 
@@ -119,10 +123,10 @@ else:
 
 ```
 engineering이 literature보다 점수가 높았다면 bot의 메시지를 "당신은 공대에 적성이 맞아요!"로 변경해줍니다.   
-그 후 /aboutengine을 입력하도록 도움말을 줍니다.  
+그 후 /aboutengine을 누르도록 도움말을 줍니다.  
 
 만약 literature이 engineering보다 점수가 높았다면 bot의 메시지를 "당신은  인문대학에 적성이 맞아요!"로 변경해줍니다.  
-그 후 /aboutliberal을 입력하도록 도움말을 줍니다.  
+그 후 /aboutliberal을 누르도록 도움말을 줍니다.  
   
 
 같은 형식으로 단과대학선택에 관한 5개의 질문과 선택지를 출력 합니다.  
@@ -131,7 +135,7 @@ engineering이 literature보다 점수가 높았다면 bot의 메시지를 "당�
 ```python
 elif count==1:
 ```
-단과대학이 공대가 되었다면  
+### 단과대학이 공대가 되었다면  
 
 ```python
 if len(data_selected.split(",")) == 1 :
@@ -190,7 +194,7 @@ keyword=input("키워드를 입력해주세요: ")
 ```
 input()함수로 사용자로부터 입학 정보에 대해 알고싶은 키워드를 입력받도록 합니다.  
   
-
+## 2.2. 질문, 답변 크롤링
 ```python
 url = 'http://admission.ewha.ac.kr/enter/doc/rolling/faq.asp?page=%d&s_board_category=BBS0402&s_search_cate=&s_search_type=&s_search_text=&p_board_id=BBS0001&p_site_type=MAM0001'
 ```
