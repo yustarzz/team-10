@@ -131,22 +131,22 @@ def callback_get(bot, update):
                 literature+=3
                 
             if(enginnering>literature):
-                bot.edit_message_text(text="당신은 공대에 적성이 맞아요!\n구체적 전공에 대한 정보를 알고 싶으신가요?".format(update.callback_query.data),
+                bot.edit_message_text(text="당신은 공대에 적성이 맞아요!\n구체적 전공에 대한 정보를 알고 싶으신가요? 그렇다면 /aboutengine 를 눌러주세요!".format(update.callback_query.data),
                                   chat_id=update.callback_query.message.chat_id,
                                   message_id=update.callback_query.message.message_id)
                 eltec=1
 
             else:
-                bot.edit_message_text(text="당신은  인문대학에 적성이 맞아요!구체적 전공에 대한 정보를 알고 싶으신가요?".format(update.callback_query.data),
+                bot.edit_message_text(text="당신은  인문대학에 적성이 맞아요!구체적 전공에 대한 정보를 알고 싶으신가요? 그렇다면 /aboutliberal 를 눌러주세요!".format(update.callback_query.data),
                                   chat_id=update.callback_query.message.chat_id,
                                   message_id=update.callback_query.message.message_id)
-    else:
+    elif count==1:
         data_selected = update.callback_query.data
         print("callback : ", data_selected)     
         if len(data_selected.split(",")) == 1 :
             button_list  = build_button(["매우 그렇다", "그렇다", "아니다","매우 아니다"], data_selected)
             show_markup = InlineKeyboardMarkup(build_menu(button_list, len(button_list) - 2))
-            bot.edit_message_text(text="생명을 다루는 것에 관심이 있나요?",
+            bot.edit_message_text(text="물리를 좋아하시나요?",
                                               chat_id=update.callback_query.message.chat_id,
                                               message_id=update.callback_query.message.message_id,
                                               reply_markup=show_markup)
@@ -160,12 +160,11 @@ def callback_get(bot, update):
         if len(data_selected.split(",")) == 3 :
             button_list = build_button(["매우 그렇다", "그렇다", "아니다","매우 아니다"], data_selected)
             show_markup = InlineKeyboardMarkup(build_menu(button_list, len(button_list) - 2))
-            bot.edit_message_text(text="기계의 작동 원리에 대해 흥미를 느끼나요?",
+            bot.edit_message_text(text="수학적 논리를 좋아하시나요?",
                                               chat_id=update.callback_query.message.chat_id,
                                               message_id=update.callback_query.message.message_id,
                                               reply_markup=show_markup)
                         
-
         elif len(data_selected.split(",")) == 4 :
                        
              b=update.callback_query.data.split(',')
@@ -210,37 +209,122 @@ def callback_get(bot, update):
                                 chemical+=1
              else:
                                 chemical+=0
-                             
 
-             if(engine>chemical):
-                                bot.edit_message_text(text="당신은 기계공학과에 적성이 맞아요!".format(update.callback_query.data),
-                                                  chat_id=update.callback_query.message.chat_id,
-                                                  message_id=update.callback_query2.message.message_id)           
+             print(engine)
+             print(chemical)
+             
+             if (engine>chemical):
+                bot.edit_message_text(text="당신은 컴퓨터 공학과에 적성이 맞아요!\n 컴퓨터 공학과는 이해와 원리에 대한 공부를 좋아하는 당신에게 적합한 전공입니다.\n자세한 정보는 http://cse.ewha.ac.kr/ 를 참고해주세요!".format(update.callback_query.data),
+                                             chat_id=update.callback_query.message.chat_id,message_id=update.callback_query.message.message_id)           
 
              else:
-                                bot.edit_message_text(text="당신은 화학공학과에 적성이 맞아요!".format(update.callback_query.data),
+                bot.edit_message_text(text="당신은 화학공학과에 적성이 맞아요!".format(update.callback_query.data),
                                                   chat_id=update.callback_query.message.chat_id,
                                                   message_id=update.callback_query.message.message_id)
                     
 
+    elif count==2:
+        data_selected = update.callback_query.data
+        print("callback : ", data_selected)     
+        if len(data_selected.split(",")) == 1 :
+            button_list  = build_button(["매우 그렇다", "그렇다", "아니다","매우 아니다"], data_selected)
+            show_markup = InlineKeyboardMarkup(build_menu(button_list, len(button_list) - 2))
+            bot.edit_message_text(text="인간에 대해 탐구하는 것에 흥미가 있나요?",
+                                              chat_id=update.callback_query.message.chat_id,
+                                              message_id=update.callback_query.message.message_id,
+                                              reply_markup=show_markup)
+        if len(data_selected.split(",")) == 2 :
+            button_list = build_button(["매우 그렇다", "그렇다", "아니다","매우 아니다"], data_selected)
+            show_markup = InlineKeyboardMarkup(build_menu(button_list, len(button_list) - 2))
+            bot.edit_message_text(text="문학 작품을 분석하는 것을 좋아하시나요?",
+                                              chat_id=update.callback_query.message.chat_id,
+                                              message_id=update.callback_query.message.message_id,
+                                              reply_markup=show_markup)
+        if len(data_selected.split(",")) == 3 :
+            button_list = build_button(["매우 그렇다", "그렇다", "아니다","매우 아니다"], data_selected)
+            show_markup = InlineKeyboardMarkup(build_menu(button_list, len(button_list) - 2))
+            bot.edit_message_text(text="과거에 일어난 사건에 대해 관심이 있으신가요?",
+                                              chat_id=update.callback_query.message.chat_id,
+                                              message_id=update.callback_query.message.message_id,
+                                              reply_markup=show_markup)
+                        
+
+        elif len(data_selected.split(",")) == 4 :
+                       
+             b=update.callback_query.data.split(',')
+             english=0       
+             history=0
+             if (b[0]=="매우 그렇다"):
+                english+=1
+                
+             elif (b[0]=="그렇다"):
+                english+=1
+             elif (b[0]=="아니다"):
+                history+=1
+             else:
+                history+=3
+                            
+             if (b[1]=="매우 그렇다"):               
+                          history+=1
+                           
+             elif (b[1]=="그렇다"):            
+                            history+=1
+             elif (b[1]=="아니다"):
+                            english+=1
+             else:
+                            english+=3
+                            
+             if (b[2]=="매우 그렇다"):               
+                            english+=3
+             elif (b[2]=="그렇다"):
+                            english+=1
+             elif (b[2]=="아니다"):
+                                history+=1
+             else:
+                                history+=3
+                                   
+             if (b[3]=="매우 그렇다"):
+                                history+=3
+             elif (b[3]=="그렇다"):
+                                history+=2
+                                
+             elif (b[3]=="아니다"):
+                                english+=1
+             else:
+                                english+=0
+                             
+
+             if(history>english):
+                                bot.edit_message_text(text="당신은 사학과에 적성이 맞아요!\n 사학과는 인간과 사회에 대한 공부를 좋아하는 당신에게 적합한 전공입니다.\n자세한 정보는 http://history.ewha.ac.kr/ 를 참고해주세요! ".format(update.callback_query.data),
+                                                  chat_id=update.callback_query.message.chat_id,
+                                                  message_id=update.callback_query.message.message_id)           
+
+             else:
+                                bot.edit_message_text(text="당신은 영어영문학과에 적성이 맞아요!".format(update.callback_query.data),
+                                                  chat_id=update.callback_query.message.chat_id,
+                                                  message_id=update.callback_query.message.message_id)          
+
             
 
-def get_command_more(bot, update):
+def get_command_more_eltec(bot, update):
     
-    print("aboutmore")
+    print("aboutmore_공대")
     button_list = build_button(["매우 그렇다", "그렇다", "아니다","매우 아니다"]) # make button list
     show_markup = InlineKeyboardMarkup(build_menu(button_list, len(button_list) - 2)) # make markup
-    update.message.reply_text("화학을 좋아하시나요?", reply_markup=show_markup) # reply text with markup
+    update.message.reply_text("화학 또는 생명을 좋아하시나요?", reply_markup=show_markup) # reply text with markup
     global count
     count=1
 
+def get_command_more_lit(bot, update):
+    
+    print("aboutmore_인문대")
+    button_list = build_button(["매우 그렇다", "그렇다", "아니다","매우 아니다"]) # make button list
+    show_markup = InlineKeyboardMarkup(build_menu(button_list, len(button_list) - 2)) # make markup
+    update.message.reply_text("외국어를 좋아하시나요?", reply_markup=show_markup) # reply text with markup
+    global count
+    count=2
 
 
-def get_message(bot, update):
-                if update.message.text== "네" :
-                    update.message.reply_text("/aboutmore 을 눌러주세요!")
-                elif update.message.text== "아니오" :
-                    update.message.reply_text('이용해주셔서 감사합니다~다시 시작을 원하시면 /start 를 다시 눌러주세요!')
 
 
 help_handler = CommandHandler('start',help_handler)
@@ -252,13 +336,16 @@ updater.dispatcher.add_handler(get_handler)
 
 
 
-get_handler_1 = CommandHandler('aboutmore', get_command_more)
+get_handler_1 = CommandHandler('aboutengine', get_command_more_eltec)
 updater.dispatcher.add_handler(CallbackQueryHandler(callback_get))
 updater.dispatcher.add_handler(get_handler_1)
 
+get_handler_2 = CommandHandler('aboutliberal', get_command_more_lit)
+updater.dispatcher.add_handler(CallbackQueryHandler(callback_get))
+updater.dispatcher.add_handler(get_handler_2)
 
-message_handler = MessageHandler(Filters.text, get_message)
-updater.dispatcher.add_handler(message_handler)
+
+
 
 
 
