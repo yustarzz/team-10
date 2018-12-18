@@ -167,11 +167,10 @@ engineering이 literature보다 점수가 높았다면 bot의 메시지를 "당�
 같은 형식으로 단과대학선택에 관한 5개의 질문과 선택지를 출력 합니다.  
   
 
+### 단과대학이 공대가 되었다면  
 ```python
 elif count==1:
-```
-### 단과대학이 공대가 되었다면  
-
+```  
 ```python
 if len(data_selected.split(",")) == 1 :
             button_list  = build_button(["매우 그렇다", "그렇다", "아니다","매우 아니다"], data_selected)
