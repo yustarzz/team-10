@@ -17,7 +17,7 @@ def build_menu(buttons, n_cols, header_buttons=None, footer_buttons=None):
         menu.append(footer_buttons)
     return menu
 ```
-build_menu는 키보드에 선택지 버튼을 생성하는 함수입니다. buttons는 버튼에 들어갈 글자, n_cols는 버튼의 열 개수를 나타냅니다.\
+_ build_menu는 키보드에 선택지 버튼을 생성하는 함수입니다. buttons는 버튼에 들어갈 글자, n_cols는 버튼의 열 개수를 나타냅니다.\
 
 
 ```python
@@ -32,7 +32,7 @@ build_menu는 키보드에 선택지 버튼을 생성하는 함수입니다. but
 
     return button_list
 ``` 
-build_button()은 키보드에 선택지 글자를 채우는 함수입니다.\
+_ build_button()은 키보드에 선택지 글자를 채우는 함수입니다.\
 
 ```python
 def help_handler(bot, update):
