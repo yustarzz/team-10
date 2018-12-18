@@ -6,6 +6,10 @@ _ 이화대학을 목표로 입시를 준비하는 입시생들에게 입시 관
 _ 어플 초반에 간단한 테스트로 단과대학 적성검사를 하는 부분이 있고, 이후 사용자가 원하는 입시정보를 얻을 수 있도록 구현하였습니다.
 
 # 사용법
+EwhaInfo_Tetelegram.py 파일을 받습니다.  
+![image](https://user-images.githubusercontent.com/43199383/50179216-c8ed4680-0349-11e9-9630-dfafb5e25bbc.png)
+Python Idle 등으로 파일을 연 다음 녹색 상자부분에 자신의 API를 입력합니다.  
+Telegram 앱으로 이동합니다.  
 ## 전공 적성 평가
 ![uni3](https://user-images.githubusercontent.com/43199383/50168269-6044a080-032e-11e9-933a-0e12331d6115.png)
 ![uni4](https://user-images.githubusercontent.com/43199383/50168640-36d84480-032f-11e9-949a-2590867824c4.png)  
