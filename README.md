@@ -8,10 +8,10 @@ _ 어플 초반에 간단한 테스트로 단과대학 적성검사를 하는 �
 
 # 사용법
 ![uni3](https://user-images.githubusercontent.com/43199383/50168269-6044a080-032e-11e9-933a-0e12331d6115.png)
-![uni4](https://user-images.githubusercontent.com/43199383/50168298-6a669f00-032e-11e9-8b92-5a6f51b374e5.png)  
+![uni4](https://user-images.githubusercontent.com/43199383/50168640-36d84480-032f-11e9-949a-2590867824c4.png)
 Telegram에서 EwhaInfo를 검색해서 클릭합니다.  
 Start버튼을 누르면  
-![image](https://user-images.githubusercontent.com/43199383/50168418-bd405680-032e-11e9-88fb-135a6c188166.png)
+![image](https://user-images.githubusercontent.com/43199383/50168418-bd405680-032e-11e9-88fb-135a6c188166.png)  
 챗봇에 관한 설명이 나온 후 /test를 눌러달라는 메시지가 나옵니다. 
 
 # 코드 설명
