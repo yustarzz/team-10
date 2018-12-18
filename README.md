@@ -142,7 +142,7 @@ if (a[0]=="매우 그렇다"):
 "아니다"였다면 engineering(공과대학)의 점수를 1점 올려주고  
 그 외 "매우 아니다" 였다면 engineering의 점수를 3점 올려줍니다.  
 
-이런 식으로 응답에 따라 점수를 누적하여 어느 단과대학과 더 맞는지 찾아갈 수 있도록 합니다.  
+이런 식으로 응답에 따라 점수를 누적하며 어느 단과대학과 더 맞는지 찾아갈 수 있도록 합니다.  
 
 ```python
 if(enginnering>literature):
@@ -254,7 +254,7 @@ input()함수로 사용자로부터 입학 정보에 대해 알고싶은 키워�
 url = 'http://admission.ewha.ac.kr/enter/doc/rolling/faq.asp?page=%d&s_board_category=BBS0402&s_search_cate=&s_search_type=&s_search_text=&p_board_id=BBS0001&p_site_type=MAM0001'
 ```
 이화여자대학교 입학처 FAQ사이트 url입니다. 이 사이트에서 keyword를 기반으로 원하는 정보를 크롤링합니다.  
-(keyword가 포함되어있는 질문과 질문에 대한 답변)\
+(keyword가 포함되어있는 질문과 질문에 대한 답변)  
   
 
 ```python
@@ -305,7 +305,7 @@ Q를 기반으로 모든 질문을 담은 question[i]를 분할합니다.
 _ 김유진(yustarzz): 팀장, 중간 발표자, 기말 발표자, 웹 크롤링 구현\
 _ 허채령 (gommung): 적성검사 구현, 중간 발표자\
 _ 양한나 (iamhanna): 선택형 키보드 구현, 중간 ppt 제작, 기말 ppt 제작, 적성검사 구현\
-_ 윤혜원 (youuuoruon): 적성검사 질문 구성, 중간 ppt 제작, read me 파일 작성
+_ 윤혜원 (youuuoruon): 적성검사 질문 구성, 중간 ppt 제작, 기말 ppt 코드분석부분, read me 파일 작성
 
 # 라이센스
 _ telegram open api:  GNU GPL licences\
