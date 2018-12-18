@@ -36,9 +36,9 @@ build_button()은 키보드에 선택지 글자를 채우는 함수입니다.
 ```python
 def help_handler(bot, update):
     print("start")    
-    update.message.reply_text("안녕하세요.이 챗봇은 당신의 적성에 맞추어 학과를 알려드립니다. 자신의 적성을 확인 하고 싶으시다면,/get 을 눌러주세요 ") 
+    update.message.reply_text("안녕하세요.이 챗봇은 당신의 적성에 맞추어 학과를 알려드립니다. 자신의 적성을 확인 하고 싶으시다면, /test 을 눌러주세요 ")
 ```
-help_handler()함수는 이 챗봇을 소개하는 문구를 출력하고 /get을 입력하도록 돕는 역할을 합니다.
+help_handler()함수는 이 챗봇을 소개하는 문구를 출력하고 /test을 입력하도록 돕는 역할을 합니다.
 
 ## 1.2 질문 시작
 get_command_1 함수로부터 질문을 하기 시작합니다.
@@ -56,7 +56,7 @@ build_button()함수를 호출하여
 ```python
 update.message.reply_text("책을 읽는 것을 좋아합니까?", reply_markup=show_markup)
 ```
-챗봇의 메시지를 업데이트하여 사용자에게 질문을 하는 함수입니다.
+사용자에게 질문을 하는 메시지를 출력하도록 bot의 message를 업데이트(변경)합니다.
 
 ### callback_get()함수
 
@@ -87,31 +87,96 @@ literature=0
 a[]는 받아온 응답을 저장하는 배열입니다.
 
 ```python
-for i in range(0,2):
- if(a[i]=="매우 그렇다"):
-    enginnering+=3
-    nature+=2
-  elif(a[i]=="그렇다"):
-    enginnering+=4
-    nature+=2
+if (a[0]=="매우 그렇다"):               
+                literature+=3
+            elif (a[0]=="그렇다"):
+                literature+=1
+            elif (a[0]=="아니다"):
+                enginnering+=1
+            else:
+                enginnering+=3
 ```
-만약 응답이 "매우 그렇다"였다면 engineering(공과대학)의 점수를 3점 올려주고 nature(자연대학)의 점수를 2점 올려줍니다.
-만약 응답이 "그렇다"였다면 engineering의 점수를 4점 올려주고 nature의 점수를 2점 올려주는 식으로 전공의 적성을 맞춰갑니다.
+만약 응답이 "매우 그렇다"였다면 literature(인문대학)의 점수를 3점 올려주고 
+"그렇다"였다면 literature의 점수를 1점 올려주고
+"아니다"였다면 engineering(공과대학)의 점수를 1점 올려주고
+그 외 "매우 아니다" 였다면 engineering의 점수를 3점 올려줍니다. 
+
+이런 식으로 응답에 따라 점수를 누적하여 어느 단과대학과 더 맞는지 찾아갈 수 있도록 합니다.
+
+```python
+if(enginnering>literature):
+                bot.edit_message_text(text="당신은 공대에 적성이 맞아요!\n구체적 전공에 대한 정보를 알고 싶으신가요? 그렇다면 /aboutengine 를                  눌러주세요!".format(update.callback_query.data),
+                 chat_id=update.callback_query.message.chat_id,
+                 message_id=update.callback_query.message.message_id)
+                eltec=1
+else:
+                bot.edit_message_text(text="당신은  인문대학에 적성이 맞아요!구체적 전공에 대한 정보를 알고 싶으신가요? 그렇다면 /aboutliberal                  를 눌러주세요!".format(update.callback_query.data),
+                 chat_id=update.callback_query.message.chat_id,
+                 message_id=update.callback_query.message.message_id)
+
+```
+engineering이 literature보다 점수가 높았다면 bot의 메시지를 "당신은 공대에 적성이 맞아요!"로 변경해줍니다. 
+그 후 /aboutengine을 입력하도록 도움말을 줍니다.
+
+만약 literature이 engineering보다 점수가 높았다면 bot의 메시지를 "당신은  인문대학에 적성이 맞아요!"로 변경해줍니다.
+그 후 /aboutliberal을 입력하도록 도움말을 줍니다.
+
+
+같은 형식으로 단과대학선택에 관한 5개의 질문과 선택지를 출력 합니다.
 
 
 ```python
-if(enginnering>nature):
-  bot.edit_message_text(text="당신은 공대에 적성이 맞아요!\n구체적 전공에 대한 정보를 알고 싶으신가요?".format(update.callback_query.data),
+elif count==1:
 ```
-engineering이 nature보다 점수가 높았다면, 결과를 내보낸 후 
+단과대학이 공대가 되었다면
 
+```python
+if len(data_selected.split(",")) == 1 :
+            button_list  = build_button(["매우 그렇다", "그렇다", "아니다","매우 아니다"], data_selected)
+            show_markup = InlineKeyboardMarkup(build_menu(button_list, len(button_list) - 2))
+            bot.edit_message_text(text="물리를 좋아하시나요?",
+            chat_id=update.callback_query.message.chat_id,
+            message_id=update.callback_query.message.message_id,
+            reply_markup=show_markup)
+```
+위와 같은 형식으로 전공파악을 하는 구체적인 질문을 하도록 합니다.
 
+```python
+b=update.callback_query.data.split(',')
+chemical=0       
+engine=0
+```
+전공 점수를 초기화하는 부분입니다.
+b[]는 받아온 응답을 저장하는 배열입니다.
 
+```python
+if (b[0]=="매우 그렇다"):
+    chemical+=3
+elif (b[0]=="그렇다"):
+    chemical+=1
+elif (b[0]=="아니다"):
+    engine+=1
+else:
+    engine+=3
+```
+마찬가지로 1번 응답에대해 선택지별로 전공점수를 따로 주는 조건문입니다.
 
+### 적성검사 최종 결과 출력
+```python
+if (engine>chemical):
+                bot.edit_message_text(text="당신은 컴퓨터 공학과에 적성이 맞아요!\n 
+                컴퓨터 공학과는 이해와 원리에 대한 공부를 좋아하는 당신에게 적합한 전공입니다.\n
+                자세한 정보는 http://cse.ewha.ac.kr/ 를 참고해주세요!".format(update.callback_query.data),
+                chat_id=update.callback_query.message.chat_id,message_id=update.callback_query.message.message_id)          
 
-
-
-
+else:
+                bot.edit_message_text(text="당신은 화학공학과에 적성이 맞아요!".format(update.callback_query.data),
+                chat_id=update.callback_query.message.chat_id,
+                message_id=update.callback_query.message.message_id)
+```
+engine이 chemical보다 높았다면 bot의 메시지를 "당신은 컴퓨터 공학과에 적성이 맞아요!"로 수정한 후
+사용자가 자세한 정보를 빠르게 접하기 쉽도록 링크를 추가합니다.
+chemical이 engine보다 높은 경우도 같습니다.
 
 # 2. 이화입학처 사이트를 웹 크롤링하여 사용자가 입력한 키워드에 해당하는 전형별 FAQ 
 
