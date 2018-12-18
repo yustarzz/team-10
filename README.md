@@ -70,8 +70,8 @@ for i in range(0,2):
     enginnering+=4
     nature+=2
 ```
-만약 응답이 "매우 그렇다"였다면 enginerring(공과대학)의 점수를 3점 올려주고 nature(자연대학)의 점수를 2점 올려줍니다.
-만약 응답이 "그렇다"였다면 enginerring의 점수를 4점 올려주고 nature의 점수를 2점 올려주는 식으로 전공의 적성을 맞춰갑니다.
+만약 응답이 "매우 그렇다"였다면 engineering(공과대학)의 점수를 3점 올려주고 nature(자연대학)의 점수를 2점 올려줍니다.
+만약 응답이 "그렇다"였다면 engineering의 점수를 4점 올려주고 nature의 점수를 2점 올려주는 식으로 전공의 적성을 맞춰갑니다.
 
 
 ```python
