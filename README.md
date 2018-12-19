@@ -257,7 +257,9 @@ input()함수로 사용자로부터 입학 정보에 대해 알고싶은 키워�
 ```python
 url = 'http://admission.ewha.ac.kr/enter/doc/rolling/faq.asp?page=%d&s_board_category=BBS0402&s_search_cate=&s_search_type=&s_search_text=&p_board_id=BBS0001&p_site_type=MAM0001'
 ```
-이화여자대학교 입학처 FAQ사이트 url입니다. 이 사이트에서 keyword를 기반으로 원하는 정보를 크롤링합니다.  
+이화여자대학교 입학처 FAQ(수시) 사이트 url입니다.   
+주소는 사용자의 선택에 따라 바꿀 수 있습니다.(정시, 편입학, 약대 등)  
+이 사이트에서 keyword를 기반으로 원하는 정보를 크롤링합니다.  
 (keyword가 포함되어있는 질문과 질문에 대한 답변)  
   
 
