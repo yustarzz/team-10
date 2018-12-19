@@ -5,6 +5,9 @@
 _ 이화대학을 목표로 입시를 준비하는 입시생들에게 입시 관련 정보를 제공해주는 어플입니다. 텔레그램 챗봇을 기반으로 하였습니다.\
 _ 어플 초반에 간단한 테스트로 단과대학 적성검사를 하는 부분이 있고, 이후 사용자가 원하는 입시정보를 얻을 수 있도록 구현하였습니다.
 
+# 시연 영상
+https://youtu.be/GHKyVJ4_jO4  
+
 # 사용법
 EwhaInfo_Tetelegram.py 파일을 받습니다.  
 ![image](https://user-images.githubusercontent.com/43199383/50179216-c8ed4680-0349-11e9-9630-dfafb5e25bbc.png)  
